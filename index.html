@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anas Marble - Premium marble and natural stone supplier in Sharjah, UAE. Serving homeowners, contractors and developers for over 20 years.">
-    <title>Anas Marble | Premium Marble & Stone Supplier Sharjah UAE</title>
-    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <meta name="description" content="Anas Marble - Premium marble and natural stone supplier in Dubai and the UAE. Design consultation, fabrication and installation under one roof.">
+    <title>Anas Marble | Premium Marble & Stone | Dubai UAE</title>
+    <link rel="icon" type="image/svg+xml" href="images/Am icon word mark horizontal.svg">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,17 +19,16 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.svg" alt="Anas Marble Logo">
+            <a href="#hero" class="logo">
+                <img src="images/Am icon word mark horizontal.svg" alt="Anas Marble Logo">
             </a>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html" class="nav-cta">Get In Touch</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#range">Our Range</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -38,277 +38,52 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-wrapper">
-            <div class="hero-text">
-                <h1>
-                    STONE THAT<br>
-                    DEFINES<br>
-                    <span class="highlight">SPACES</span>
-                </h1>
-                <p class="hero-desc">
-                    Whether you're a <span class="bold">homeowner</span> designing your dream villa or a <span class="bold">contractor</span> sourcing for your next project — we supply the UAE's finest marble and natural stone with over 20 years of trusted expertise.
-                </p>
-                <div class="hero-btns">
-                    <a href="contact.html" class="btn btn-dark">Get In Touch</a>
-                    <a href="products.html" class="btn btn-gold">View Products</a>
-                </div>
-            </div>
-
-            <div class="hero-images">
-                <div class="hero-img-main">
-                    <img
-                        src="images/hero-main.jpg"
-                        alt="Premium marble slabs"
-                        onerror="this.src='https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=800&q=80'">
-                </div>
-                <div class="hero-img-sm1">
-                    <img
-                        src="images/hero-2.jpg"
-                        alt="Marble countertop installation"
-                        onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80'">
-                </div>
-                <div class="hero-img-sm2">
-                    <img
-                        src="images/hero-3.jpg"
-                        alt="Marble flooring"
-                        onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80'">
-                </div>
-            </div>
+    <!-- SECTION 1: HERO — slideshow only, no text -->
+    <section class="hero" id="hero">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="background-image: url('images/hero 1.png');"></div>
+            <div class="hero-slide" style="background-image: url('images/hero 2.png');"></div>
+            <div class="hero-slide" style="background-image: url('images/hero 3.png');"></div>
         </div>
     </section>
 
-    <!-- Trust Bar -->
-    <div class="trust-bar">
-        <div class="trust-bar-inner">
-            <div class="trust-item">
-                <span class="trust-number">20+</span>
-                <span class="trust-label">Years in Business</span>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-                <span class="trust-number">500+</span>
-                <span class="trust-label">Projects Completed</span>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-                <span class="trust-number">50+</span>
-                <span class="trust-label">Stone Varieties</span>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-                <span class="trust-number">UAE</span>
-                <span class="trust-label">Wide Delivery</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Who We Serve -->
-    <section class="section">
-        <div class="section-header">
-            <span class="section-subtitle">Who We Work With</span>
-            <h2 class="section-title">BUILT FOR EVERY CLIENT</h2>
-            <p class="section-desc">
-                From individual homeowners to large-scale developers, we have the stock, expertise and capacity to serve every project — big or small.
+    <!-- SECTION 1B: INTRO TEXT -->
+    <section class="hero-intro">
+        <div class="hero-intro-inner">
+            <h1>STONE  THAT<br>DEFINES  SPACES</h1>
+            <p class="hero-desc">
+                From design consultation and material selection to precision fabrication and installation, we deliver complete stone solutions across Dubai and the UAE, backed by over 20 years of expertise.
             </p>
-        </div>
-
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h3>Homeowners</h3>
-                <p>Building a new villa or renovating your apartment? We help you choose the <span class="bold">perfect stone</span> for your flooring, kitchen counters, bathrooms, stairs and walls — with expert guidance every step of the way.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-hard-hat"></i>
-                </div>
-                <h3>Contractors & Fitout Firms</h3>
-                <p>We supply <span class="bold">trade clients</span> with consistent quality, reliable lead times and competitive pricing. Our facility handles custom cutting and bulk orders with precision.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3>Developers & Real Estate</h3>
-                <p>For large residential and commercial developments, we offer <span class="bold">dedicated account management</span>, bulk supply agreements and a wide selection to match any project specification.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <h3>Offices & Hospitality</h3>
-                <p>Restaurants, hotels and commercial spaces demand stone that <span class="bold">impresses and endures</span>. We supply premium materials suited to high-traffic, high-visibility environments.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-gold">Design Your Space</a>
+                <a href="#services" class="btn btn-outline-dark">View Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Products Preview -->
-    <div class="section-full">
-        <div class="inner">
-            <div class="section-header">
-                <span class="section-subtitle">Our Range</span>
-                <h2 class="section-title">STONE FOR EVERY SPACE</h2>
-                <p class="section-desc">
-                    Natural marble, granite, engineered stone and more — supplied and custom cut for any residential or commercial application.
-                </p>
-            </div>
+    <!-- SECTION 2: STATS BAR (placeholder - next session) -->
+    <div id="stats"></div>
 
-            <div class="products-grid">
-                <div class="product-card">
-                    <img
-                        src="images/product-flooring.jpg"
-                        alt="Marble flooring"
-                        onerror="this.src='https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=700&q=80'">
-                    <div class="product-card-overlay">
-                        <h3>Flooring</h3>
-                        <p>Villas, apartments, offices & more</p>
-                    </div>
-                </div>
+    <!-- SECTION 3: SPACES WE SHAPE (placeholder - next session) -->
+    <section id="services"></section>
 
-                <div class="product-card">
-                    <img
-                        src="images/product-countertop.jpg"
-                        alt="Kitchen and bathroom countertops"
-                        onerror="this.src='https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=700&q=80'">
-                    <div class="product-card-overlay">
-                        <h3>Countertops</h3>
-                        <p>Kitchen, bathroom & vanity tops</p>
-                    </div>
-                </div>
+    <!-- SECTION 4: OUR RANGE (placeholder - next session) -->
+    <section id="range"></section>
 
-                <div class="product-card">
-                    <img
-                        src="images/product-walls.jpg"
-                        alt="Wall cladding marble"
-                        onerror="this.src='https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=700&q=80'">
-                    <div class="product-card-overlay">
-                        <h3>Wall Cladding</h3>
-                        <p>Interior & exterior stone walls</p>
-                    </div>
-                </div>
+    <!-- SECTION 5: WHY ANAS MARBLE (placeholder - next session) -->
+    <section id="why"></section>
 
-                <div class="product-card">
-                    <img
-                        src="images/product-stairs.jpg"
-                        alt="Marble stairs"
-                        onerror="this.src='https://images.unsplash.com/photo-1590622974942-a74d1ef9f7c8?w=700&q=80'">
-                    <div class="product-card-overlay">
-                        <h3>Stairs & Steps</h3>
-                        <p>Custom cut treads and risers</p>
-                    </div>
-                </div>
-        </div>
+    <!-- SECTION 6: CTA BRIDGE (placeholder - next session) -->
 
-            <div style="text-align: center; margin-top: 4rem;">
-                <a href="products.html" class="btn btn-dark">Explore Full Range</a>
-            </div>
-        </div>
-    </div>
+    <!-- SECTION 7: FORM (placeholder - next session) -->
+    <section id="contact"></section>
 
-    <!-- Why Choose Us -->
-    <section class="section">
-        <div class="section-header">
-            <span class="section-subtitle">Why Anas Marble</span>
-            <h2 class="section-title">QUALITY YOU CAN<br>TRUST</h2>
-            <p class="section-desc">
-                Two decades of experience, a vast inventory and a team that genuinely cares about getting your project right.
-            </p>
-        </div>
+    <!-- SECTION 8: PARTNER LOGOS (placeholder - next session) -->
 
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-gem"></i>
-                </div>
-                <h3>Premium Sourcing</h3>
-                <p>We import from the world's finest quarries — Italy, Spain, Turkey, India and beyond — ensuring <span class="bold">exceptional quality</span> in every slab.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-cut"></i>
-                </div>
-                <h3>Custom Fabrication</h3>
-                <p>Our in-house facility cuts and finishes stone to your <span class="bold">exact measurements</span> — countertops, steps, tiles and cladding done precisely.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-truck"></i>
-                </div>
-                <h3>UAE Wide Delivery</h3>
-                <p>We deliver across the UAE with <span class="bold">reliable scheduling</span> that fits your construction or renovation timeline.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <h3>Expert Guidance</h3>
-                <p>Not sure which stone suits your project? Our team provides <span class="bold">honest, knowledgeable advice</span> to help you make the right choice.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <h2>LET'S TALK<br>ABOUT YOUR PROJECT</h2>
-        <p>
-            Whether you're tiling a bathroom or supplying an entire development — we're here to help. Reach out and let's find the <span class="highlight">right stone</span> for you.
-        </p>
-        <a href="contact.html" class="btn btn-outline">Get In Touch</a>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="images/logo.svg" alt="Anas Marble">
-                    <p>Premium marble and natural stone supplier based in Sharjah, UAE. Trusted by homeowners, contractors and developers for over 20 years.</p>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-    <h4>Contact Us</h4>
-    <address>
-        <a href="https://maps.app.goo.gl/SfvoB8ABirB1njKN6" target="_blank">
-            Industrial Area 15,<br>
-            Sharjah, UAE
-        </a><br><br>
-        <a href="tel:+971556764058">+971-55 676 4058</a><br>
-        <a href="tel:+971565412929">+971-56 541 2929</a><br>
-        <a href="mailto:acbar@anasmarble.com">acbar@anasmarble.com</a>
-    </address>
-</div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Anas Bldg. Mat. & Marbles Tr. L.L.C. All rights reserved.</p>
-                <p>Industrial Area 15, Sharjah, UAE</p>
-            </div>
-        </div>
-    </footer>
+    <!-- SECTION 9: FOOTER (placeholder - next session) -->
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/971556764058" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <a href="https://wa.me/971502772659" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 

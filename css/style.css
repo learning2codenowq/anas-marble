@@ -80,16 +80,20 @@ body {
    TYPOGRAPHY
    ============================================ */
 h1, h2, h3, h4 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 700;
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     margin-bottom: 1.5rem;
 }
 
-h1 { font-size: clamp(3rem, 9vw, 7.5rem); text-transform: uppercase; letter-spacing: -0.03em; }
+h1 { font-size: clamp(3rem, 8vw, 7rem); text-transform: uppercase; letter-spacing: -0.01em; }
 h2 { font-size: clamp(2rem, 5vw, 4rem); text-transform: uppercase; }
-h3 { font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 600; }
+h3 { font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 700; }
+
+p, label, input, select, textarea, a, li, address {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 p {
     font-size: 1.05rem;
@@ -129,7 +133,7 @@ p {
 }
 
 .logo img {
-    height: 52px;
+    height: 36px;
     width: auto;
     display: block;
 }
@@ -316,100 +320,107 @@ p {
 }
 
 /* ============================================
-   HERO
+   HERO — slideshow only
    ============================================ */
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 10rem 4rem 4rem;
-    max-width: 1600px;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-slides {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* ============================================
+   HERO INTRO — text section below slideshow
+   ============================================ */
+.hero-intro {
+    background-color: var(--bg-white);
+    padding: 8rem 2rem;
+    text-align: center;
+}
+
+.hero-intro-inner {
+    max-width: 860px;
     margin: 0 auto;
 }
 
-.hero-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-    width: 100%;
-}
-
-.hero-text h1 {
+.hero-intro-inner h1 {
     margin-bottom: 2rem;
-    line-height: 0.9;
-}
-
-.hero-text h1 .highlight {
-    color: var(--primary);
+    line-height: 1.05;
+    color: var(--text-dark);
 }
 
 .hero-desc {
     font-size: 1.1rem;
     color: var(--text-light);
     margin-bottom: 3rem;
-    max-width: 480px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
     font-weight: 300;
     line-height: 1.8;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .hero-btns {
     display: flex;
     gap: 1.2rem;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
-/* Hero image collage */
-.hero-images {
-    position: relative;
-    height: 580px;
-}
-
-.hero-img-main {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 68%;
-    height: 72%;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-    z-index: 2;
-}
-
-.hero-img-sm1 {
-    position: absolute;
-    bottom: 8%;
-    left: 0;
-    width: 42%;
-    height: 46%;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-    z-index: 3;
-}
-
-.hero-img-sm2 {
-    position: absolute;
-    bottom: 0;
-    right: 18%;
-    width: 32%;
-    height: 36%;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    z-index: 1;
-}
-
-.hero-images img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.btn-outline-dark {
+    background-color: transparent;
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
+    display: inline-block;
+    padding: 1.1rem 2.8rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.85rem;
     transition: var(--transition);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.hero-images > div:hover img {
-    transform: scale(1.05);
+.btn-outline-dark:hover {
+    background-color: var(--charcoal);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .hero-intro {
+        padding: 5rem 2rem;
+    }
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-outline-dark {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* ============================================

@@ -20,12 +20,24 @@ if (hamburger) {
     });
 }
 
-// Active Navigation Link
-const currentPage = location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-        link.classList.add('active');
-    }
+// Active Navigation Link (single-page anchor-based)
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.nav-menu a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
 });
 
 // Navbar Scroll Effect
@@ -224,4 +236,22 @@ document.addEventListener('DOMContentLoaded', function() {
         cursor.style.opacity = '1';
         follower.style.opacity = '1';
     });
+
+    // ============================================
+// HERO SLIDESHOW
+// ============================================
+(function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (!slides.length) return;
+
+    let current = 0;
+
+    function nextSlide() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }
+
+    setInterval(nextSlide, 4000);
+})();
 });
