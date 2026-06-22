@@ -254,4 +254,175 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setInterval(nextSlide, 4000);
 })();
+// ============================================
+// STATS BAR — animated count up
+// ============================================
+(function() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (!statNumbers.length) return;
+
+    let animated = false;
+
+    function countUp(el) {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        const plus = el.nextElementSibling;
+        const duration = 1800;
+        const stepTime = 16;
+        const steps = Math.floor(duration / stepTime);
+        let current = 0;
+        let step = 0;
+
+        const timer = setInterval(() => {
+            step++;
+            current = Math.round((step / steps) * target);
+            el.textContent = current;
+
+            if (step >= steps) {
+                el.textContent = target;
+                clearInterval(timer);
+                if (plus && plus.classList.contains('stat-plus')) {
+                    plus.classList.add('visible');
+                }
+            }
+        }, stepTime);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                statNumbers.forEach(el => countUp(el));
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const statsBar = document.getElementById('stats');
+    if (statsBar) observer.observe(statsBar);
+})();
+// ============================================
+// OUR RANGE CAROUSEL
+// ============================================
+(function() {
+    const carousel = document.getElementById('rangeCarousel');
+    const prevBtn = document.querySelector('.range-arrow-left');
+    const nextBtn = document.querySelector('.range-arrow-right');
+    if (!carousel) return;
+
+    const scrollAmount = () => {
+        const card = carousel.querySelector('.range-card');
+        return card ? card.offsetWidth + 24 : 400;
+    };
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+        });
+    }
+
+    // Drag to scroll
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        carousel.classList.add('grabbing');
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+        carousel.classList.remove('grabbing');
+    });
+
+    carousel.addEventListener('mouseup', () => {
+        isDown = false;
+        carousel.classList.remove('grabbing');
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+})();
+// ============================================
+// FORM — same as phone + WhatsApp submit
+// ============================================
+(function() {
+    const phoneInput = document.getElementById('phoneInput');
+    const whatsappInput = document.getElementById('whatsappInput');
+    const sameAsPhone = document.getElementById('sameAsPhone');
+    const form = document.getElementById('projectForm');
+
+    if (sameAsPhone && phoneInput && whatsappInput) {
+        sameAsPhone.addEventListener('change', () => {
+            if (sameAsPhone.checked) {
+                whatsappInput.value = phoneInput.value;
+                whatsappInput.disabled = true;
+            } else {
+                whatsappInput.disabled = false;
+            }
+        });
+
+        phoneInput.addEventListener('input', () => {
+            if (sameAsPhone.checked) {
+                whatsappInput.value = phoneInput.value;
+            }
+        });
+    }
+
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = form.querySelector('[name="name"]').value.trim();
+            const phone = phoneInput ? phoneInput.value.trim() : '';
+            const whatsapp = whatsappInput ? whatsappInput.value.trim() : '';
+            const projectType = form.querySelector('[name="project_type"]').value;
+            const stage = form.querySelector('[name="project_stage"]').value;
+            const material = form.querySelector('[name="material"]').value;
+            const vision = form.querySelector('[name="vision"]').value.trim();
+            const email = form.querySelector('[name="email"]').value.trim();
+
+            const checkedItems = [...form.querySelectorAll('[name="work"]:checked')]
+                .map(el => el.value).join(', ');
+
+            if (!name || !phone || !whatsapp || !projectType || !stage || !checkedItems) {
+                alert('Please fill in all required fields and select at least one area you are working on.');
+                return;
+            }
+
+            const message = `
+*New Project Enquiry — Anas Marble*
+
+*Name:* ${name}
+*Phone:* +971${phone}
+*WhatsApp:* +971${whatsapp}
+${email ? `*Email:* ${email}` : ''}
+
+*Project Type:* ${projectType}
+*Working On:* ${checkedItems}
+*Project Stage:* ${stage}
+*Preferred Material:* ${material}
+${vision ? `*Vision:* ${vision}` : ''}
+            `.trim();
+
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/971502772659?text=${encoded}`, '_blank');
+            form.reset();
+            if (whatsappInput) whatsappInput.disabled = false;
+        });
+    }
+})();
 });
