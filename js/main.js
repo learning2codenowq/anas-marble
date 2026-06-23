@@ -186,58 +186,59 @@ document.addEventListener('DOMContentLoaded', () => {
 // CUSTOM LUXURY CURSOR
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+    if (!('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
 
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
+        const follower = document.createElement('div');
+        follower.className = 'cursor-follower';
+        document.body.appendChild(follower);
 
-    const follower = document.createElement('div');
-    follower.className = 'cursor-follower';
-    document.body.appendChild(follower);
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
 
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    let followerX = 0, followerY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    function animate() {
-        cursorX += (mouseX - cursorX) * 0.3;
-        cursorY += (mouseY - cursorY) * 0.3;
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top  = cursorY + 'px';
-
-        followerX += (mouseX - followerX) * 0.15;
-        followerY += (mouseY - followerY) * 0.15;
-        follower.style.left = followerX + 'px';
-        follower.style.top  = followerY + 'px';
-
-        requestAnimationFrame(animate);
-    }
-    animate();
-
-    setTimeout(() => {
-        document.querySelectorAll('a, button, .btn, input, textarea, select, .card, .gallery-item, .product-card').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
-    }, 100);
 
-    document.addEventListener('mouseleave', () => {
-        cursor.style.opacity = '0';
-        follower.style.opacity = '0';
-    });
+        function animate() {
+            cursorX += (mouseX - cursorX) * 0.3;
+            cursorY += (mouseY - cursorY) * 0.3;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top  = cursorY + 'px';
 
-    document.addEventListener('mouseenter', () => {
-        cursor.style.opacity = '1';
-        follower.style.opacity = '1';
-    });
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
+            follower.style.left = followerX + 'px';
+            follower.style.top  = followerY + 'px';
 
-    // ============================================
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        setTimeout(() => {
+            document.querySelectorAll('a, button, .btn, input, textarea, select, .card, .gallery-item, .product-card').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        }, 100);
+
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            follower.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            follower.style.opacity = '1';
+        });
+    }
+});
+
+// ============================================
 // HERO SLIDESHOW
 // ============================================
 (function() {
@@ -265,6 +266,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setInterval(nextSlide, 4000);
 })();
+// ============================================
+// RANGE CAROUSEL — mobile/desktop image swap
+// ============================================
+(function() {
+    const cards = document.querySelectorAll('.range-card');
+    if (!cards.length) return;
+
+    function setRangeImages() {
+        const isMobile = window.innerWidth <= 768;
+        cards.forEach(card => {
+            const src = isMobile ? card.dataset.mobile : card.dataset.desktop;
+            if (src) card.style.backgroundImage = `url('${src}')`;
+        });
+    }
+
+    setRangeImages();
+    window.addEventListener('resize', setRangeImages);
+})();
+
 // ============================================
 // STATS BAR — animated count up
 // ============================================
@@ -306,11 +326,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.disconnect();
             }
         });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.1, rootMargin: '0px 0px 50px 0px' });
 
     const statsBar = document.getElementById('stats');
     if (statsBar) observer.observe(statsBar);
 })();
+
 // ============================================
 // OUR RANGE CAROUSEL
 // ============================================
@@ -337,7 +358,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Drag to scroll
     let isDown = false;
     let startX;
     let scrollLeft;
@@ -367,6 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
         carousel.scrollLeft = scrollLeft - walk;
     });
 })();
+
 // ============================================
 // FORM — same as phone + WhatsApp submit
 // ============================================
@@ -376,21 +397,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const sameAsPhone = document.getElementById('sameAsPhone');
     const form = document.getElementById('projectForm');
 
-    if (sameAsPhone && phoneInput && whatsappInput) {
-        const phoneCodeSelect = document.getElementById('phoneCode');
-        const whatsappCodeSelect = document.getElementById('whatsappCode');
+    const phoneCodeSelect = document.getElementById('phoneCode');
+    const whatsappCodeSelect = document.getElementById('whatsappCode');
 
-        function syncWhatsapp() {
-            if (sameAsPhone.checked) {
-                whatsappInput.value = phoneInput.value;
-                whatsappInput.disabled = true;
-                if (whatsappCodeSelect && phoneCodeSelect) {
-                    whatsappCodeSelect.value = phoneCodeSelect.value;
-                    whatsappCodeSelect.disabled = true;
-                }
+    function syncWhatsapp() {
+        if (sameAsPhone.checked) {
+            whatsappInput.value = phoneInput.value;
+            whatsappInput.disabled = true;
+            if (whatsappCodeSelect && phoneCodeSelect) {
+                whatsappCodeSelect.value = phoneCodeSelect.value;
+                whatsappCodeSelect.disabled = true;
             }
         }
+    }
 
+    if (sameAsPhone && phoneInput && whatsappInput) {
         sameAsPhone.addEventListener('change', () => {
             if (sameAsPhone.checked) {
                 syncWhatsapp();
@@ -427,8 +448,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            const phoneCode = document.getElementById('phoneCode') ? document.getElementById('phoneCode').value : '+971';
-            const whatsappCode = document.getElementById('whatsappCode') ? document.getElementById('whatsappCode').value : '+971';
+            const phoneCode = phoneCodeSelect ? phoneCodeSelect.value : '+971';
+            const whatsappCode = whatsappCodeSelect ? whatsappCodeSelect.value : '+971';
 
             const message = `
 *New Project Enquiry — Anas Marble*
@@ -448,8 +469,8 @@ ${vision ? `*Vision:* ${vision}` : ''}
             const encoded = encodeURIComponent(message);
             window.open(`https://wa.me/971502772659?text=${encoded}`, '_blank');
             form.reset();
+            if (whatsappCodeSelect) whatsappCodeSelect.disabled = false;
             if (whatsappInput) whatsappInput.disabled = false;
         });
     }
 })();
-});
