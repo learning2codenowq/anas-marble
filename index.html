@@ -263,6 +263,7 @@
                 <div class="form-block">
                     <label>2. WHAT ARE YOU WORKING ON? *</label>
                     <div class="multi-select-grid">
+                        <label class="checkbox-item"><input type="checkbox" name="work" value="Full Project Fit-Out"><span>Full Project Fit-Out</span></label>
                         <label class="checkbox-item"><input type="checkbox" name="work" value="Flooring"><span>Flooring</span></label>
                         <label class="checkbox-item"><input type="checkbox" name="work" value="Kitchen Countertops / Island"><span>Kitchen Countertops / Island</span></label>
                         <label class="checkbox-item"><input type="checkbox" name="work" value="Bathroom / Vanity"><span>Bathroom / Vanity</span></label>
@@ -271,7 +272,6 @@
                         <label class="checkbox-item"><input type="checkbox" name="work" value="Wall Cladding / Facade"><span>Wall Cladding / Facade</span></label>
                         <label class="checkbox-item"><input type="checkbox" name="work" value="Outdoor Areas"><span>Outdoor Areas</span></label>
                         <label class="checkbox-item"><input type="checkbox" name="work" value="Custom Stone Furniture"><span>Custom Stone Furniture</span></label>
-                        <label class="checkbox-item"><input type="checkbox" name="work" value="Full Project Fit-Out"><span>Full Project Fit-Out</span></label>
                         <label class="checkbox-item"><input type="checkbox" name="work" value="Other"><span>Other</span></label>
                     </div>
                 </div>
@@ -322,15 +322,45 @@
                     <div class="form-block">
                         <label>PHONE NUMBER *</label>
                         <div class="phone-input-wrap">
-                            <span class="phone-prefix">+971</span>
-                            <input type="tel" name="phone" required placeholder="XX XXX XXXX" id="phoneInput">
+                            <select class="phone-country-code" id="phoneCode">
+                                <option value="+971" selected>🇦🇪 +971</option>
+                                <option value="+44">🇬🇧 +44</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+91">🇮🇳 +91</option>
+                                <option value="+92">🇵🇰 +92</option>
+                                <option value="+966">🇸🇦 +966</option>
+                                <option value="+965">🇰🇼 +965</option>
+                                <option value="+974">🇶🇦 +974</option>
+                                <option value="+973">🇧🇭 +973</option>
+                                <option value="+968">🇴🇲 +968</option>
+                                <option value="+20">🇪🇬 +20</option>
+                                <option value="+90">🇹🇷 +90</option>
+                                <option value="+33">🇫🇷 +33</option>
+                                <option value="+49">🇩🇪 +49</option>
+                            </select>
+                            <input type="tel" name="phone" required placeholder="50 123 4567" id="phoneInput">
                         </div>
                     </div>
                     <div class="form-block">
                         <label>WHATSAPP NUMBER *</label>
                         <div class="phone-input-wrap">
-                            <span class="phone-prefix">+971</span>
-                            <input type="tel" name="whatsapp" required placeholder="XX XXX XXXX" id="whatsappInput">
+                            <select class="phone-country-code" id="whatsappCode">
+                                <option value="+971" selected>🇦🇪 +971</option>
+                                <option value="+44">🇬🇧 +44</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+91">🇮🇳 +91</option>
+                                <option value="+92">🇵🇰 +92</option>
+                                <option value="+966">🇸🇦 +966</option>
+                                <option value="+965">🇰🇼 +965</option>
+                                <option value="+974">🇶🇦 +974</option>
+                                <option value="+973">🇧🇭 +973</option>
+                                <option value="+968">🇴🇲 +968</option>
+                                <option value="+20">🇪🇬 +20</option>
+                                <option value="+90">🇹🇷 +90</option>
+                                <option value="+33">🇫🇷 +33</option>
+                                <option value="+49">🇩🇪 +49</option>
+                            </select>
+                            <input type="tel" name="whatsapp" required placeholder="50 123 4567" id="whatsappInput">
                         </div>
                         <label class="same-as-phone">
                             <input type="checkbox" id="sameAsPhone">

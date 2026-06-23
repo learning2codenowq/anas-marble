@@ -366,20 +366,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('projectForm');
 
     if (sameAsPhone && phoneInput && whatsappInput) {
-        sameAsPhone.addEventListener('change', () => {
+        const phoneCodeSelect = document.getElementById('phoneCode');
+        const whatsappCodeSelect = document.getElementById('whatsappCode');
+
+        function syncWhatsapp() {
             if (sameAsPhone.checked) {
                 whatsappInput.value = phoneInput.value;
                 whatsappInput.disabled = true;
+                if (whatsappCodeSelect && phoneCodeSelect) {
+                    whatsappCodeSelect.value = phoneCodeSelect.value;
+                    whatsappCodeSelect.disabled = true;
+                }
+            }
+        }
+
+        sameAsPhone.addEventListener('change', () => {
+            if (sameAsPhone.checked) {
+                syncWhatsapp();
             } else {
                 whatsappInput.disabled = false;
+                if (whatsappCodeSelect) whatsappCodeSelect.disabled = false;
             }
         });
 
-        phoneInput.addEventListener('input', () => {
-            if (sameAsPhone.checked) {
-                whatsappInput.value = phoneInput.value;
-            }
-        });
+        phoneInput.addEventListener('input', syncWhatsapp);
+        if (phoneCodeSelect) {
+            phoneCodeSelect.addEventListener('change', syncWhatsapp);
+        }
     }
 
     if (form) {
@@ -403,12 +416,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            const phoneCode = document.getElementById('phoneCode') ? document.getElementById('phoneCode').value : '+971';
+            const whatsappCode = document.getElementById('whatsappCode') ? document.getElementById('whatsappCode').value : '+971';
+
             const message = `
 *New Project Enquiry — Anas Marble*
 
 *Name:* ${name}
-*Phone:* +971${phone}
-*WhatsApp:* +971${whatsapp}
+*Phone:* ${phoneCode}${phone}
+*WhatsApp:* ${whatsappCode}${whatsapp}
 ${email ? `*Email:* ${email}` : ''}
 
 *Project Type:* ${projectType}
