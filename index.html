@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Anas Marble - Premium marble and natural stone supplier in Dubai and the UAE. Design consultation, fabrication and installation under one roof.">
     <title>Anas Marble | Premium Marble & Stone | Dubai UAE</title>
-    <link rel="icon" type="image/svg+xml" href="images/Am icon word mark horizontal.svg">
+    <link rel="icon" type="image/svg+xml" href="images/Am-icon-word-mark-horizontal.svg">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,8 +22,8 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#hero" class="logo">
-                <img src="images/Am icon.svg" alt="Anas Marble Icon" class="nav-logo-icon">
-                <img src="images/Am icon word mark horizontal.svg" alt="Anas Marble Logo" class="nav-logo-text">
+                <img src="images/Am-icon.svg" alt="Anas Marble Icon" class="nav-logo-icon">
+                <img src="images/Am-icon-word-mark-horizontal.svg" alt="Anas Marble Logo" class="nav-logo-text">
             </a>
             <ul class="nav-menu">
                 <li><a href="#hero">Home</a></li>
@@ -42,9 +42,9 @@
     <!-- SECTION 1: HERO — slideshow only, no text -->
     <section class="hero" id="hero">
         <div class="hero-slides">
-            <div class="hero-slide active" style="background-image: url('images/hero 1.png');"></div>
-            <div class="hero-slide" style="background-image: url('images/hero 2.png');"></div>
-            <div class="hero-slide" style="background-image: url('images/hero 3.png');"></div>
+            <div class="hero-slide active" data-desktop="images/hero-1.webp" data-mobile="images/hero-1-mobile.webp"></div>
+            <div class="hero-slide" data-desktop="images/hero-2.webp" data-mobile="images/hero-2-mobile.webp"></div>
+            <div class="hero-slide" data-desktop="images/hero-3.webp" data-mobile="images/hero-3-mobile.webp"></div>
         </div>
     </section>
 
@@ -136,34 +136,64 @@
 
             <div class="range-carousel" id="rangeCarousel">
                 <div class="range-card">
-                    <img src="images/flooring.png" alt="Stone Flooring">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/flooring-mobile.webp">
+                        <img src="images/flooring.webp" alt="Stone Flooring" loading="lazy">
+                    </picture>
                 </div>
                 <div class="range-card">
-                    <img src="images/feature walls.png" alt="Feature Walls">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/feature-walls-mobile.webp">
+                        <img src="images/feature-walls.webp" alt="Feature Walls" loading="lazy">
+                    </picture>
                 </div>
                 <div class="range-card">
-                    <img src="images/kitchens.png" alt="Kitchens and Islands">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/kitchens-mobile.webp">
+                        <img src="images/kitchens.webp" alt="Kitchens and Islands" loading="lazy">
+                    </picture>
                 </div>
                 <div class="range-card">
-                    <img src="images/bathrooms.png" alt="Bathrooms and Wet Areas">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/bathrooms-mobile.webp">
+                        <img src="images/bathrooms.webp" alt="Bathrooms and Wet Areas" loading="lazy">
+                    </picture>
                 </div>
                 <div class="range-card">
-                    <img src="images/furniture.png" alt="Custom Stone Furniture">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/furniture-mobile.webp">
+                        <img src="images/furniture.webp" alt="Custom Stone Furniture" loading="lazy">
+                    </picture>
                 </div>
                 <div class="range-card">
-                    <img src="images/facades.png" alt="Villa Facades">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/facades-mobile.webp">
+                        <img src="images/facades.webp" alt="Villa Facades" loading="lazy">
+                    </picture>
                 </div>
                 <div class="range-card">
-                    <img src="images/stairs.png" alt="Staircases">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/stairs-mobile.webp">
+                        <img src="images/stairs.webp" alt="Staircases" loading="lazy">
+                    </picture>
                 </div>
                 <div class="range-card">
-                    <img src="images/landscaping.png" alt="Landscaping">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/landscaping-mobile.webp">
+                        <img src="images/landscaping.webp" alt="Landscaping" loading="lazy">
+                    </picture>
                 </div>
                 <div class="range-card">
-                    <img src="images/pool.png" alt="Pool Surrounds">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/pool-mobile.webp">
+                        <img src="images/pool.webp" alt="Pool Surrounds" loading="lazy">
+                    </picture>
                 </div>
                 <div class="range-card">
-                    <img src="images/bbq outdoor.png" alt="BBQ and Outdoor">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/bbq-outdoor-mobile.webp">
+                        <img src="images/bbq-outdoor.webp" alt="BBQ and Outdoor" loading="lazy">
+                    </picture>
                 </div>
             </div>
 
@@ -382,9 +412,9 @@
     <!-- SECTION 8: PARTNER LOGOS -->
     <section class="partners-section">
         <div class="partners-inner">
-            <img src="images/AM style posts.svg" alt="AM Style Posts">
-            <img src="images/Am icon.svg" alt="Anas Marble Icon" class="partner-logo-color">
-            <img src="images/Stone around the Globe.svg" alt="Stone Around the Globe">
+            <img src="images/AM-style-posts.svg" alt="AM Style Posts">
+            <img src="images/Am-icon.svg" alt="Anas Marble Icon" class="partner-logo-color">
+            <img src="images/Stone-around-the-Globe.svg" alt="Stone Around the Globe">
         </div>
     </section>
 
@@ -394,8 +424,8 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="footer-logo-wrap">
-                        <img src="images/Am icon.svg" alt="Anas Marble Icon" class="footer-logo-icon">
-                        <img src="images/Am icon word mark vertical.svg" alt="Anas Marble" class="footer-logo-text">
+                        <img src="images/Am-icon.svg" alt="Anas Marble Icon" class="footer-logo-icon">
+                        <img src="images/Am-icon-word-mark-vertical.svg" alt="Anas Marble" class="footer-logo-text">
                     </div>
                     <p class="footer-tagline">Crafting spaces in marble & natural stone.</p>
                     <p class="footer-services">Design • Supply • Fabrication • Installation</p>

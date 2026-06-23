@@ -244,6 +244,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.hero-slide');
     if (!slides.length) return;
 
+    function setHeroImages() {
+        const isMobile = window.innerWidth <= 768;
+        slides.forEach(slide => {
+            const src = isMobile ? slide.dataset.mobile : slide.dataset.desktop;
+            slide.style.backgroundImage = `url('${src}')`;
+        });
+    }
+
+    setHeroImages();
+    window.addEventListener('resize', setHeroImages);
+
     let current = 0;
 
     function nextSlide() {
