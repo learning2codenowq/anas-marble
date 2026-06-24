@@ -436,6 +436,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const whatsapp = whatsappInput ? whatsappInput.value.trim() : '';
             const projectType = form.querySelector('[name="project_type"]').value;
             const stage = form.querySelector('[name="project_stage"]').value;
+            const location = form.querySelector('[name="project_location"]').value;
             const material = form.querySelector('[name="material"]').value;
             const vision = form.querySelector('[name="vision"]').value.trim();
             const email = form.querySelector('[name="email"]').value.trim();
@@ -443,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const checkedItems = [...form.querySelectorAll('[name="work"]:checked')]
                 .map(el => el.value).join(', ');
 
-            if (!name || !phone || !whatsapp || !projectType || !stage || !checkedItems) {
+            if (!name || !phone || !whatsapp || !projectType || !location || !stage || !checkedItems) {
                 alert('Please fill in all required fields and select at least one area you are working on.');
                 return;
             }
@@ -460,6 +461,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ${email ? `*Email:* ${email}` : ''}
 
 *Project Type:* ${projectType}
+*Project Location:* ${location}
 *Working On:* ${checkedItems}
 *Project Stage:* ${stage}
 *Preferred Material:* ${material}

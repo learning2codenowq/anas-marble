@@ -311,6 +311,13 @@ p {
     transition: opacity 1.2s ease-in-out;
 }
 
+@media (max-width: 768px) {
+    .hero-slide {
+        background-size: cover;
+        background-position: top center;
+    }
+}
+
 .hero-slide.active {
     opacity: 1;
 }
@@ -1519,7 +1526,11 @@ p {
     .nav-logo-text { height: 20px; }
     .section { padding: 4rem 2rem; }
     .section-full { padding: 4rem 2rem; }
-    .hero { padding: 7rem 2rem 3rem; }
+    .hero { 
+        padding: 0;
+        height: 100vh;
+        min-height: 500px;
+    }
     .hero-images { height: 420px; }
     .hero-btns { flex-direction: column; }
     .btn { width: 100%; text-align: center; }
