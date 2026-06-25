@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!slides.length) return;
 
     function setHeroImages() {
-        const isMobile = window.innerWidth <= 768;
+        const isMobile = window.innerWidth <= 1024;
         slides.forEach(slide => {
             const src = isMobile ? slide.dataset.mobile : slide.dataset.desktop;
             slide.style.backgroundImage = `url('${src}')`;
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!cards.length) return;
 
     function setRangeImages() {
-        const isMobile = window.innerWidth <= 768;
+        const isMobile = window.innerWidth <= 1024;
         cards.forEach(card => {
             const src = isMobile ? card.dataset.mobile : card.dataset.desktop;
             if (src) card.style.backgroundImage = `url('${src}')`;

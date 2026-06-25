@@ -311,7 +311,7 @@ p {
     transition: opacity 1.2s ease-in-out;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hero-slide {
         background-size: cover;
         background-position: top center;
@@ -321,12 +321,12 @@ p {
 .hero-slide.active {
     opacity: 1;
 }
-/* Hero slide overlay — mobile only */
+/* Hero slide overlay — mobile and tablet */
 .hero-slide-overlay {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hero-slide-overlay {
         display: flex;
         flex-direction: column;
@@ -749,12 +749,12 @@ p {
     cursor: grabbing;
 }
 
+/* Desktop */
 .range-card {
     flex: 0 0 85vw;
     width: 85vw;
     height: calc(85vw * 9 / 16);
     max-width: 1400px;
-    max-height: calc(1400px * 9 / 16);
     border-radius: 6px;
     overflow: hidden;
     position: relative;
@@ -765,49 +765,8 @@ p {
     transition: transform 0.4s ease;
 }
 
-
-.range-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.4);
-    background-color: rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: #fff;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
-    z-index: 2;
-}
-
-.range-arrow-left {
-    left: calc(7.5vw + 1.2rem);
-}
-
-.range-arrow-right {
-    right: calc(7.5vw + 1.2rem);
-}
-
-.range-arrow:hover {
-    background-color: rgba(255,255,255,0.9);
-    color: var(--charcoal);
-    border-color: transparent;
-}
-
+/* Tablet and mobile — portrait images */
 @media (max-width: 1024px) {
-    .range-card {
-        flex: 0 0 88vw;
-    }
-}
-
-@media (max-width: 768px) {
     .range-header {
         padding: 0 2rem;
     }
@@ -817,13 +776,25 @@ p {
         gap: 0.75rem;
     }
     .range-card {
-        flex: 0 0 88vw;
-        width: 88vw;
-        height: calc(88vw * 16 / 9);
+        flex: 0 0 75vw !important;
+        width: 75vw !important;
+        height: calc(75vw * 16 / 9) !important;
+        max-width: none !important;
+        max-height: none !important;
         border-radius: 4px;
+        background-size: cover;
+        background-position: center center;
     }
     .range-arrow {
         display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .range-card {
+        flex: 0 0 88vw !important;
+        width: 88vw !important;
+        height: calc(88vw * 16 / 9) !important;
     }
 }
 
