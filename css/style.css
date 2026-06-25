@@ -334,7 +334,7 @@ p {
         justify-content: flex-end;
         position: absolute;
         inset: 0;
-        padding: 3rem 2rem;
+        padding: 0 2rem 8rem;
         background: linear-gradient(
             to top,
             rgba(0, 0, 0, 0.65) 0%,
