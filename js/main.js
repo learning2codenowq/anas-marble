@@ -246,15 +246,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!slides.length) return;
 
     function setHeroImages() {
-        const isMobile = window.innerWidth <= 1024;
+        const isPortrait = window.innerHeight > window.innerWidth;
         slides.forEach(slide => {
-            const src = isMobile ? slide.dataset.mobile : slide.dataset.desktop;
+            const src = isPortrait ? slide.dataset.mobile : slide.dataset.desktop;
             slide.style.backgroundImage = `url('${src}')`;
         });
     }
 
     setHeroImages();
     window.addEventListener('resize', setHeroImages);
+    window.addEventListener('orientationchange', setHeroImages);
 
     let current = 0;
 
@@ -274,15 +275,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!cards.length) return;
 
     function setRangeImages() {
-        const isMobile = window.innerWidth <= 1024;
+        const isPortrait = window.innerHeight > window.innerWidth;
         cards.forEach(card => {
-            const src = isMobile ? card.dataset.mobile : card.dataset.desktop;
+            const src = isPortrait ? card.dataset.mobile : card.dataset.desktop;
             if (src) card.style.backgroundImage = `url('${src}')`;
         });
     }
 
     setRangeImages();
     window.addEventListener('resize', setRangeImages);
+    window.addEventListener('orientationchange', setRangeImages);
 })();
 
 // ============================================
