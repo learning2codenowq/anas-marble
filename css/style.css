@@ -10,6 +10,10 @@
 }
 
 :root {
+    color-scheme: light only;
+}
+
+:root {
     --primary: #a69472;        /* Warm gold */
     --primary-dark: #6b5c41;   /* Warm brown */
     --charcoal: #34393d;       /* Dark charcoal */
@@ -599,6 +603,26 @@ p {
     .cards-grid {
         grid-template-columns: 1fr;
         max-width: 100%;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .card {
+        text-align: center;
+        width: 100%;
+    }
+
+    .card-icon {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -1379,29 +1403,21 @@ p {
 
 @media (max-width: 768px) {
     .partners-section {
-        padding: 4rem 1rem;
+        padding: 4rem 2rem;
         overflow: hidden;
     }
     .partners-inner {
-        gap: 1rem;
-        flex-wrap: nowrap;
-        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
         align-items: center;
+        justify-content: center;
     }
     .partners-inner img {
+        height: 70px;
+        max-width: 280px;
+    }
+    .partners-inner img.partner-logo-color {
         height: 40px;
-        max-width: 160px;
-        flex-shrink: 1;
-    }
-}
-
-@media (max-width: 400px) {
-    .partners-inner img {
-        height: 30px;
-        max-width: 100px;
-    }
-    .partners-inner {
-        gap: 0.6rem;
     }
 }
 
